@@ -1,11 +1,14 @@
 {
-  "name": "lesson_5",
+  "name": "second_server",
   "version": "1.0.0",
   "description": "second server",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Nyakallo Mahlakametsa",
-  "license": "ISC"
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-status-code": "^2.1.0"
+  }
 }
