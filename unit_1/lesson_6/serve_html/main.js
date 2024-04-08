@@ -85,9 +85,9 @@ http
       "Content-Type": "text/css",
     });
     customReadFile(`./public/css${url}`, res);
-  } else if (url.indexOf(".png") !== -1) {
+  } else if (url.indexOf(".jpg") !== -1) {
     res.writeHead(httpStatus.OK, {
-      "Content-Type": "image/png",
+      "Content-Type": "image/jpg",
     });
     customReadFile(`./public/images${url}`, res);
   } else {
