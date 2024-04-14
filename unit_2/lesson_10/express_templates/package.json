@@ -9,8 +9,9 @@
   "author": "Jon Wexler",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^3.1.9",
+    "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "express-ejs-layouts": "^2.5.0"
+    "express-ejs-layouts": "^2.5.0",
+    "layouts": "^3.0.2"
   }
 }
