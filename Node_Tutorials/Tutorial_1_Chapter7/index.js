@@ -3,9 +3,12 @@ const path = require('path');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
 const BlogPost = require('./models/BlogPost.js');
+const fileUpload = require('express-fileupload');
 //const BlogPost = mongoose.model('BlogPost',BlogPostSchema); 
 const Schema = mongoose.Schema;
 const app = new express();
+
+app.use(fileUpload());
 
 const BlogPostSchema = new Schema({ 
     title: String, 
@@ -65,9 +68,21 @@ app.get("/posts/new", (req, res) => {
     //res.redirect('/') 
     //})
 
-app.post('/posts/store', async (req,res)=>{             
+/*app.post('/posts/store', async (req,res)=>{             
     await BlogPost.create(req.body) 
     res.redirect('/') 
+})*/
+
+app.post("/posts/stor", (req, res) => {
+    let image = req.files.image;
+    image.mv(path.resolve(__dirname, "public/img", image.name), 
+async (error) => {
+    await BlogPost.create ({
+        ...req.body,
+        image: "/img/" + image.name
+    })
+    res.redirect("/")
+})
 })
 
 app.listen(3000, () => {

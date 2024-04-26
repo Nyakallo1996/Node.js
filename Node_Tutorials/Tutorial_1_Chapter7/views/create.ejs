@@ -37,7 +37,7 @@
               <!-- To make this form functional, sign up at-->
               <!-- https://startbootstrap.com/solution/contact-forms-->
               <!-- to get an API token!-->
-              <form action="/posts/store" method="POST">
+              <form action="/posts/store" method="POST" enctype="multipart/form-data">
                 <!--<form id="contactForm" data-sb-form-api-token="API_TOKEN">-->
                 <div class="form-floating">
                   <!--<input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
@@ -111,7 +111,15 @@
                     Error sending message!
                   </div>
                 </div>
+                <div class="control-group">
+                  <div class="form-group floating-label-form-group controls">
+                    <label>Image</label>
+                    <input type="file" class="form-control" id="image" name="image">
+                  </div>
+                </div>
+                <br>
                 <!-- Submit Button-->
+              <div class="form-group"></div>
                 <button
                   class="btn btn-primary text-uppercase"
                   id="submitButton"
@@ -119,7 +127,8 @@
                 >
                   Send
                 </button>
-              </form>
+              </div>
+            </form>
             </div>
           </div>
         </div>
