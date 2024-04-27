@@ -37,8 +37,24 @@
               <!-- To make this form functional, sign up at-->
               <!-- https://startbootstrap.com/solution/contact-forms-->
               <!-- to get an API token!-->
-              <form action="/posts/store" method="POST">
+              <form
+                action="/posts/store"
+                method="POST"
+                enctype="multipart/form-data"
+              >
                 <!--<form id="contactForm" data-sb-form-api-token="API_TOKEN">-->
+                <div class="control-group">
+                  <div class="form-group floating-label-form-group controls">
+                    <label for="">Image</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="image"
+                      name="image"
+                    />
+                  </div>
+                </div>
+
                 <div class="form-floating">
                   <!--<input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                                     <label for="name">blog tilte</label>-->
@@ -48,7 +64,7 @@
                     class="form-control"
                     placeholder="Title"
                     id="title"
-                    name="title"
+                    name="”title”"
                   />
                   <label>Title</label>
                   <div
@@ -74,11 +90,19 @@
                                     <label for="message">blog content body</label>-->
 
                   <textarea
+                    
                     rows="5"
                     class="form-control"
                     id="body"
-                    name="body"
+                    name="”body”"
                   ></textarea>
+                  <script>
+                    $("#body").summernote({
+                      placeholder: "Hello bootstrap 4",
+                      tabsize: 2,
+                      height: 200
+                    });
+                  </script>
                   <label>Description</label>
                   <div
                     class="invalid-feedback"

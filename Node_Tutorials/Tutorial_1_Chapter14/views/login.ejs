@@ -13,7 +13,7 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
           <div class="col-md-10 col-lg-8 col-xl-7">
             <div class="page-heading">
-              <h1>Create New Post</h1>
+              <h1>Login</h1>
               <span class="subheading">Have questions? I have answers.</span>
             </div>
           </div>
@@ -37,18 +37,46 @@
               <!-- To make this form functional, sign up at-->
               <!-- https://startbootstrap.com/solution/contact-forms-->
               <!-- to get an API token!-->
-              <form action="/posts/store" method="POST">
+              <form
+                action="/users/login"
+                method="POST"
+                enctype="multipart/form-data"
+              >
                 <!--<form id="contactForm" data-sb-form-api-token="API_TOKEN">-->
-                <div class="form-floating">
-                  <!--<input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                    <label for="name">blog tilte</label>-->
+                <div class="control-group">
+                  <div class="form-group floating-label-form-group controls">
+                    <label for="">User Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="User Name"
+                      id="username"
+                      name="username"
+                    />
+                  </div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                      <label for="">Password</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        placeholder="Password"
+                        id="password"
+                        name="password"
+                      />
+                    </div>
+                  </div>
+                <!--<div class="form-floating">
+                  <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                    <label for="name">blog tilte</label>
 
                   <input
                     type="text"
                     class="form-control"
                     placeholder="Title"
                     id="title"
-                    name="title"
+                    name="”title”"
                   />
                   <label>Title</label>
                   <div
@@ -57,7 +85,7 @@
                   >
                     A name is required.
                   </div>
-                </div>
+                </div>-->
                 <!--<div class="form-floating">
                                     <input class="form-control" id="email" type="email" placeholder="Enter your email..." data-sb-validations="required,email" />
                                     <label for="email">Email address</label>
@@ -69,15 +97,15 @@
                                     <label for="phone">Phone Number</label>
                                     <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                                 </div>-->
-                <div class="form-floating">
-                  <!--<textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
-                                    <label for="message">blog content body</label>-->
+                <!--<div class="form-floating">
+                  <textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
+                                    <label for="message">blog content body</label>
 
                   <textarea
                     rows="5"
                     class="form-control"
                     id="body"
-                    name="body"
+                    name="”body”"
                   ></textarea>
                   <label>Description</label>
                   <div
@@ -86,7 +114,7 @@
                   >
                     A message is required.
                   </div>
-                </div>
+                </div>-->
                 <br />
                 <!-- Submit success message-->
                 <!---->
@@ -117,7 +145,7 @@
                   id="submitButton"
                   type="submit"
                 >
-                  Send
+                  Login
                 </button>
               </form>
             </div>
