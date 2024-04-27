@@ -37,7 +37,7 @@
               <!-- To make this form functional, sign up at-->
               <!-- https://startbootstrap.com/solution/contact-forms-->
               <!-- to get an API token!-->
-              <form action="/posts/store" method="POST">
+              <form action="/posts/store" method="POST" enctype="multipart/form-data">
               
                 <div class="form-floating">
                   
@@ -100,14 +100,22 @@
                     Error sending message!
                   </div>
                 </div>
-                <!-- Submit Button-->
-                <button
-                  class="btn btn-primary text-uppercase"
-                  id="submitButton"
-                  type="submit"
-                >
-                  Send
-                </button>
+                <div class="control-group">
+                  <div class="form-group floating-label-form-group controls">
+                     <label>Image</label>
+                     <input type="file" class="form-control" id="image" name="image">
+                  </div>
+                </div>
+                <br>
+                <div class="form-group">
+                   <button
+                     class="btn btn-primary text-uppercase"
+                     id="submitButton"
+                    type="submit"
+                    >
+                    Send
+                   </button>
+                </div>   
               </form>
             </div>
           </div>
