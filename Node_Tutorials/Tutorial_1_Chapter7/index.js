@@ -2,11 +2,7 @@ const express = require('express');
 const path = require('path');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
-const fileUpload = require("express-fileupload")
 const BlogPost = require('./models/BlogPost.js');
-
-
-
 //const BlogPost = mongoose.model('BlogPost',BlogPostSchema); 
 const Schema = mongoose.Schema;
 const app = new express();
@@ -24,8 +20,7 @@ const BlogPostSchema = new Schema({
 
 app.use(express.static('public'));
 app.use(express.json()); 
-app.use(express.urlencoded({extended: true}));
-app.use(fileUpload());
+app.use(express.urlencoded({extended: true})); 
 // With app.set('view engine','ejs'), we tell Express to use EJS as our templating engine, 
 // that any file ending in .ejs should be rendered with the EJS package.
 app.set('view engine', 'ejs');
@@ -71,15 +66,8 @@ app.get("/posts/new", (req, res) => {
     //})
 
 app.post('/posts/store', async (req,res)=>{             
-    let image = req.files.image;
-    image.mv(path.resolve(__dirname, "public/img", image.name),
-      async (error) => {
-        await BlogPost.create({
-            ...req.body,
-            image: "/img/" + image.name
-        })
-        res.redirect("/")
-      }) 
+    await BlogPost.create(req.body) 
+    res.redirect('/') 
 })
 
 app.listen(3000, () => {
