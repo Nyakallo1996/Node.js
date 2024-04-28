@@ -1,28 +1,27 @@
 const express = require("express");
-const path = require("path");
+
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 const fileUpload = require("express-fileupload");
-const BlogPost = require("./models/BlogPost.js");
+const validationMiddleWare = require("./middleware/validationMiddleware");
+const newPostController = require("./controllers/newPost");
+const homeController = require("./controllers/home");
+const storePostController = require("./controllers/storePost");
+const getPostController = require("./controllers/getPost");
 //const BlogPost = mongoose.model('BlogPost',BlogPostSchema);
 const Schema = mongoose.Schema;
 const app = new express();
 
-/*const customMiddleware = (req, res, next) => {
+const customMiddleware = (req, res, next) => {
   console.log("Custom middle ware called")
-  next()
-}*/
-
-const validationMiddleWare = (req, res, next) => {
-  if(req.files == null || req.body.title == null) {
-    return res.redirect("/posts/new")
-  }
   next()
 }
 
 
 
-//app.use(customMiddleware);
+
+
+app.use(customMiddleware);
 
 app.use(fileUpload());
 
@@ -40,53 +39,29 @@ mongoose.connect("mongodb://127.0.0.1/my_database", { useNewUrlParser: true });
 //});
 
 
-app.get("/", async (req, res) => {
+/*app.get("/", async (req, res) => {
   const blogposts = await BlogPost.find({});
   res.render("index", {
     blogposts: blogposts,
   });
-});
-
-app.get("/about", (req, res) => {
-  res.render("about");
-});
-
-app.get("/contact", (req, res) => {
-  res.render("contact");
-});
-
-app.get("/post", (req, res) => {
-  res.render("post");
-});
-
-app.get("/post/:id", async (req, res) => {
-  const blogpost = await BlogPost.findById(req.params.id);
-  res.render("post", {
-    blogpost,
-  });
-});
-
-app.get("/posts/new", (req, res) => {
-  res.render("create");
-});
-
-//app.post('/posts/store',(req,res)=>{
-// console.log(req.body)
-//res.redirect('/')
-//})
-
-app.post("/posts/store", async (req, res) => {
-  let image = req.files.image;
-  image.mv(path.resolve(__dirname, "public/img", image.name), async (error) => {
-    await BlogPost.create({
-      ...req.body,
-      image: "/img/" + image.name,
-    });
-    res.redirect("/");
-  });
-});
+});*/
 
 app.use("/posts/store", validationMiddleWare);
+
+
+
+
+app.get("/posts/new", newPostController); 
+
+app.get("/", homeController);
+
+app.get("/post/:id", getPostController);
+
+app.post("/posts/store", storePostController);
+
+
+
+
 
 app.listen(3000, () => {
   console.log("App listening on port 3000");
