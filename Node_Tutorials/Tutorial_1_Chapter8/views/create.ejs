@@ -34,12 +34,7 @@
                             <!-- to get an API token!-->
                             <form action="/posts/store" method="POST" enctype = "multipart/form-data"> 
                             <!--<form id="contactForm" data-sb-form-api-token="API_TOKEN">-->
-                                <div class="control-group">
-                                    <div class="form-group floating-label-form-group controls">
-                                        <label for="">Image</label>
-                                        <input type="file" class="form-control" id="image" name="image">
-                                    </div>
-                                </div>
+                                
                                 
                                 <div class="form-floating">
                                     <!--<input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
@@ -89,6 +84,13 @@ id="body" name=”body” ></textarea>
                                 <!-- an error submitting the form-->
                                 <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                                 <!-- Submit Button-->
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls">
+                                        <label for="">Image</label>
+                                        <input type="file" class="form-control" id="image" name="image">
+                                    </div>
+                                </div>
+                                <br>
                                 <button class="btn btn-primary text-uppercase " id="submitButton" type="submit">Send</button>
                             </form>
                         </div>
