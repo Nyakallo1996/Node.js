@@ -8,6 +8,8 @@ const newPostController = require("./controllers/newPost");
 const homeController = require("./controllers/home");
 const storePostController = require("./controllers/storePost");
 const getPostController = require("./controllers/getPost");
+const newUserController = require("./controllers/newUser");
+const storeUserController = require("./controllers/storeUser");
 //const BlogPost = mongoose.model('BlogPost',BlogPostSchema);
 const Schema = mongoose.Schema;
 const app = new express();
@@ -59,7 +61,9 @@ app.get("/post/:id", getPostController);
 
 app.post("/posts/store", storePostController);
 
+app.get("/auth/register", newUserController);
 
+app.post("/users/register", storeUserController);
 
 
 
