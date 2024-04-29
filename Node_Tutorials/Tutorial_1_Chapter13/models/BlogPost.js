@@ -5,29 +5,24 @@
 // This means that each document in the collection would have the fields specified in the schema.
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-//const BlogPost = mongoose.model('BlogPost',BlogPostSchema);
 
-/*const BlogPostSchema = new Schema({
+const BlogPostSchema = new Schema({
     title: String,
-    body: String
-});*/
-
-const BlogPostSchema = new Schema({ 
-    title: String, 
-    body: String, 
+    body: String,
+    //username: String,
     userid: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-        require: true
+        required: true
     }, 
-    datePosted:{ /* can declare property type with an object like this 
-    because we need 'default' */ 
-    type: Date, 
-    default: new Date() 
-    }, 
-    image: String 
-    });
-    
+datePosted:{ /* can declare property type with an object like this 
+because we need 'default' */ 
+type: Date, 
+default: new Date() 
+},
+image: String   
+});
+
 
 // We access the database via mongoose.model. 
 // The first argument is the singular name of the collection your model is for. 
