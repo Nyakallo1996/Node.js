@@ -53,6 +53,7 @@ app.use(express.urlencoded({ extended: true }));
 // that any file ending in .ejs should be rendered with the EJS package.
 app.set("view engine", "ejs");
 mongoose.connect("mongodb://127.0.0.1/my_database", { useNewUrlParser: true });
+
 //app.get('/', (req, res) => {
 //    res.render('index');
 //});
