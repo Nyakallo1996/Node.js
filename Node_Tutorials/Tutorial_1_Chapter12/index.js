@@ -16,7 +16,6 @@ const expressSession = require("express-session");
 const authMiddleware = require("./middleware/authMiddleware");
 const redirectIfAuthenticatedMiddleware = require("./middleware/redirectIfAuthenticatedMiddleware");
 const logoutController = require("./controllers/logout");
-const flash = require("connect-flash");
 //const BlogPost = mongoose.model('BlogPost',BlogPostSchema);
 const Schema = mongoose.Schema;
 const app = new express();
@@ -44,8 +43,6 @@ app.use("*", (req, res, next) => {
 })
 
 app.use(fileUpload());
-
-app.use(flash());
 
 
 
