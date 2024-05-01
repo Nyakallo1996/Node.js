@@ -1,6 +1,6 @@
 module.exports = {
     Tutorial: require("./Tutorial"),
-    Image: require("./image"),
+    Image: require("./Image"),
     Comment: require("./Comment"),
     Category: require("./Category")
   };
